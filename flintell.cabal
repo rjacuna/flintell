@@ -1,0 +1,35 @@
+cabal-version: 2.4
+name: flintell
+version: 0.1.0.0
+synopsis: Native and WebAssembly bindings to FLINT 3.6
+description: Opaque FLINT objects for exact arithmetic, matrices and modular geometry.
+license: GPL-3.0-or-later
+license-file: LICENSE
+author: RJ Acuña
+maintainer: RJ Acuña
+homepage: https://github.com/rjacuna/flintell
+bug-reports: https://github.com/rjacuna/flintell/issues
+category: Math
+build-type: Simple
+extra-source-files: cbits/*.h, versions.sh, scripts/*.sh, scripts/*.py,
+                    wasm-flint/*.sh, wasm-flint/*.c, wasm-flint/*.mjs, test/Wasi.hs, wasm-flint/package.json, wasm-flint/README.md, wasm-flint/LICENSE
+source-repository head
+  type: git
+  location: https://github.com/rjacuna/flintell
+
+library
+  hs-source-dirs: src
+  exposed-modules: Flint.FFI, Flint.Z, Flint.SL2, Flint.Ball, Flint.Mat, Flint.Poly, Flint.Integer, Flint.Curve
+  build-depends: base >=4.14 && <5
+  c-sources: cbits/flintell_shims.c, wasm-flint/flintell.c
+  include-dirs: cbits
+  extra-libraries: flint, mpfr, gmp
+  default-language: Haskell2010
+  ghc-options: -Wall
+
+test-suite smoke
+  type: exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is: Smoke.hs
+  build-depends: base, flintell, Flint2 >=0.1.0.6 && <0.2
+  default-language: Haskell2010

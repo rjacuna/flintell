@@ -1,0 +1,9 @@
+dist-newstyle/
+cabal.project.local
+*.o
+*.hi
+wasm-flint/dist/
+
+.DS_Store
+__pycache__/
+*.pyc

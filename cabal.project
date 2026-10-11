@@ -1,0 +1,2 @@
+packages: . vendor/Flint2
+allow-newer: all

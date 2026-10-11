@@ -1,0 +1,26 @@
+{
+  "name": "@flintell/wasm-flint",
+  "version": "0.1.0",
+  "description": "Exact FLINT 3.6 polynomial factorisation for browsers and Node",
+  "type": "module",
+  "license": "GPL-3.0-or-later",
+  "exports": "./dist/index.mjs",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "bash build.sh",
+    "test": "node test.mjs && node verify.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjacuna/flintell.git",
+    "directory": "wasm-flint"
+  },
+  "homepage": "https://github.com/rjacuna/flintell/tree/master/wasm-flint",
+  "bugs": {
+    "url": "https://github.com/rjacuna/flintell/issues"
+  }
+}
